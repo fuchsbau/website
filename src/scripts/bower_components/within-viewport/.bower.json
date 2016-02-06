@@ -1,0 +1,44 @@
+{
+  "name": "within-viewport",
+  "version": "0.0.3",
+  "homepage": "http://patik.github.io/within-viewport/",
+  "authors": [
+    "Craig Patik <craig@patik.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/patik/within-viewport.git"
+  },
+  "description": "Determine whether an element is completely within the browser viewport",
+  "main": "withinViewport.js",
+  "keywords": [
+    "viewport",
+    "browser viewport",
+    "within",
+    "window",
+    "element",
+    "jQuery plugin",
+    "JavaScript plugin",
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower.json",
+    "bower_components",
+    "demo",
+    "index.html",
+    "notes.md"
+  ],
+  "_release": "0.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.3",
+    "commit": "6a12e151ec82bdbf27992502e1c7348e2bba591b"
+  },
+  "_source": "git://github.com/patik/within-viewport.git",
+  "_target": "~0.0.3",
+  "_originalSource": "within-viewport",
+  "_direct": true
+}

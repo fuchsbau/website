@@ -11,16 +11,14 @@ const clean = require('gulp-clean');
 const gulpSequence = require('gulp-sequence');
 const frontMatter = require('gulp-front-matter');
 const data = require('gulp-data');
-// var concat = require("gulp-concat");
+var concat = require("gulp-concat");
 
 
 // precompilers
 const jade = require('gulp-jade');
 const sass = require('gulp-sass');
+const coffee = require('gulp-coffee');
 
-// scripts
-//
-// files
 
 // optimization
 const autoprefixer = require('gulp-autoprefixer');
@@ -37,14 +35,28 @@ const gzip = require('gulp-gzip');
 
 var config = {
   src: 'src',
-  dist: 'dist'
+  dist: 'dist',
+  tmp: 'tmp'
 };
 
 var paths = {
-  templates: path.resolve(__dirname, config.src, 'templates'),
-  styles: path.resolve(__dirname, config.src, 'styles'),
-  build: path.resolve(__dirname, config.dist),
-  css: path.resolve(__dirname, config.dist, 'css')
+  src: {
+    templates: path.resolve(__dirname, config.src, 'templates'),
+    images: path.resolve(__dirname, config.src, 'images'),
+    styles: path.resolve(__dirname, config.src, 'styles'),
+    scripts: path.resolve(__dirname, config.src, 'scripts'),
+    fonts: path.resolve(__dirname, config.src, 'fonts')
+  },
+  dist: {
+    build: path.resolve(__dirname, config.dist),
+    images: path.resolve(__dirname, config.dist, 'images'),
+    styles: path.resolve(__dirname, config.dist, 'css'),
+    scripts: path.resolve(__dirname, config.dist, 'scripts'),
+    fonts: path.resolve(__dirname, config.dist, 'fonts')
+  },
+  tmp: {
+    scripts: path.resolve(__dirname, config.tmp, 'scripts')
+  }
 };
 
 
@@ -55,43 +67,60 @@ var paths = {
 //     .pipe(rev.manifest())
 //     .pipe(gulp.dest(assetPath)); // write manifest to build dir
 // });
-//
-// gulp.task('stylus', function () {
-//   return gulp.src('./lib/*.styl')
-//     .pipe(plumber())
-//     .pipe(sourcemaps.init())
-//     .pipe(stylus())
-//     .pipe(autoprefixer({
-//       browsers: ['last 2 versions'],
-//       cascade: false
-//     }))
-//     .pipe(sourcemaps.write())
-//     .pipe(gulp.dest(assetPath + '/styles'));
-// });
+
 
 gulp.task('styles', () => {
-  gulp.src(`${paths.styles}/**/*.sass`)
+  return gulp.src(`${paths.src.styles}/**/*.sass`)
   .pipe(plumber())
   .pipe(sass().on('error', sass.logError))
-  .pipe(gulp.dest(paths.css));
+  .pipe(gulp.dest(paths.dist.styles));
 });
 
-gulp.task('scripts', () => {
-
+gulp.task('coffee', () => {
+  return gulp.src(`${paths.src.scripts}/**/*.coffee`)
+  .pipe(plumber())
+  .pipe(coffee({bare: true}).on('error', gutil.log))
+  .pipe(gulp.dest(paths.tmp.scripts));
 });
-// gulp.task('files', () => {});
+
+gulp.task('scripts', ['coffee'], () => {
+  return gulp.src([
+    'src/scripts/base64encode.js',
+    'bower_components/bowser/bowser.js',
+    'bower_components/jquery.stellar/jquery.stellar.js',
+    'bower_components/jquery.center.js/dist/jquery.center.js',
+    'bower_components/jquery-smooth-scroll/jquery.smooth-scroll.js',
+    'bower_components/within-viewport/withinViewport.js',
+    'bower_components/within-viewport/jquery.withinViewport.js',
+    `${paths.tmp.scripts}/main.js`
+  ])
+  .pipe(concat('main.js'))
+  .pipe(gulp.dest(paths.dist.scripts));
+});
+
+gulp.task('images', () => {
+  return gulp.src(`${paths.src.images}/**/*`)
+  .pipe(gulp.dest(paths.dist.images))
+});
+
+gulp.task('fonts', () => {
+  return gulp.src(`${paths.src.fonts}/**/*`)
+  .pipe(gulp.dest(paths.dist.fonts))
+});
+
+gulp.task('assets', ['styles', 'images', 'scripts', 'fonts']);
 
 gulp.task('templates', () => {
     // let manifest = gulp.src(assetPath + '/rev-manifest.json');
 
-    gulp.src(`${paths.templates}/[^_]*.jade`)
+    return gulp.src(`${paths.src.templates}/[^_]*.jade`)
     .pipe(plumber())
     .pipe(jade({pretty: true, locals: { host: config.host, copyrightYear: new Date().getFullYear() }}))
     // .pipe(revReplace({manifest: manifest}))
-    .pipe(gulp.dest(paths.build));
+    .pipe(gulp.dest(paths.dist.build));
 });
 
 
-gulp.task('build-development', ['templates']);
+gulp.task('build-development', ['templates', 'assets']);
 
 gulp.task('default', ['build-development'])

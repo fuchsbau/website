@@ -26,18 +26,18 @@
     height: 200px
     margin-left: auto
     background: image-url("anna-bw.png") no-repeat center center
-    +background-size(100%)
+    background-size: 100%
     border: 12px solid #fff
-    +border-radius(500px)
+    border-radius: 500px
     // position: relative
     //
     // top: 50%
     // left: 0
-    // +transform(translate(0, -50%))
+    // transform: translate(0, -50%)
 
     +susy-breakpoint(0 68em, 12)
       position: static
-      +transform(none)
+      transform: none
       margin-bottom: 1em
       margin-top: 2em
 
@@ -50,19 +50,19 @@
     +prefix(2 of 12)
     +suffix(2 of 12)
 
-  .profile-description
-    +span(last 9 of 12)
-    color: #fff
-
-    .multi-column
-      +column-count(3)
-      +column-gap(25px)
-
-      +susy-breakpoint(75em 90em, 12)
-        +column-count(2)
-
-      +susy-breakpoint(0 75em, 12)
-        +column-count(1)
+  // .profile-description
+  //   +span(last 9 of 12)
+  //   color: #fff
+  //
+  //   .multi-column
+  //     +column-count(3)
+  //     +column-gap(25px)
+  //
+  //     +susy-breakpoint(75em 90em, 12)
+  //       +column-count(2)
+  //
+  //     +susy-breakpoint(0 75em, 12)
+  //       +column-count(1)
 
     strong
       @extend %ft-opensansbold

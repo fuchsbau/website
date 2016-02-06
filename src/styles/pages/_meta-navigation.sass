@@ -2,11 +2,11 @@
   position: absolute
   top: 2.7em
   left: 50%
-  +transform(translateX(-50%))
+  transform: translateX(-50%)
 
   display: block
   padding: .5em 1.5em
-  +border-radius(2px)
+  border-radius: 2px
 
   background: $bg-link-hover !important
   color: $ft-link-contrast
@@ -17,7 +17,7 @@
     position: absolute
     top: -9px
     left: 50%
-    +transform(translateX(-50%))
+    transform: translateX(-50%)
     border-bottom: 10px solid $bg-link-hover
     border-left:  10px solid transparent
     border-right:  10px solid transparent
@@ -87,10 +87,10 @@
           position: absolute
           left: 100%
           top: 50%
-          +transform(translate(.5em, -50%))
+          transform: translate(.5em, -50%)
           background: $bg-link-hover
           padding: 6px 6px 5px 6px
-          +border-radius(2px)
+          border-radius: 2px
 
           img.big
             display: none
@@ -100,7 +100,7 @@
             position: absolute
             left: -10px
             top: 50%
-            +transform(translateY(-50%))
+            transform: translateY(-50%)
             border-right: 10px solid $bg-link-hover
             border-top:  10px solid transparent
             border-bottom:  10px solid transparent
@@ -143,7 +143,7 @@
     left: 0
     width: 100%
     z-index: 1999
-    +box-shadow(0 0 2px rgba(0, 0, 0, 0.65))
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.65)
 
   +susy-breakpoint(38em 90em, 12)
     ul
