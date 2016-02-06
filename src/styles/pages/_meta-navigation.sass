@@ -1,0 +1,224 @@
+=floating-label
+  position: absolute
+  top: 2.7em
+  left: 50%
+  +transform(translateX(-50%))
+
+  display: block
+  padding: .5em 1.5em
+  +border-radius(2px)
+
+  background: $bg-link-hover !important
+  color: $ft-link-contrast
+
+  // tooltip triangular
+  &:before
+    content: ''
+    position: absolute
+    top: -9px
+    left: 50%
+    +transform(translateX(-50%))
+    border-bottom: 10px solid $bg-link-hover
+    border-left:  10px solid transparent
+    border-right:  10px solid transparent
+
+%flaticon-button
+  @extend %button
+  &[class^="flaticon-"], &[class*=" flaticon-"]
+    padding-left: 0em
+
+  &[class^="flaticon-"]:before, &[class*=" flaticon-"]:before, &[class^="flaticon-"]:after, &[class*=" flaticon-"]:after
+    font-size: 2em
+    position: relative
+    top: .15em
+    color: transparent
+
+  &:hover[class^="flaticon-"]:before, &:hover[class*=" flaticon-"]:before, &:hover[class^="flaticon-"]:after, &:hover[class*=" flaticon-"]:after
+    color: $ft-main-contrast
+
+.meta-navigation
+  +container()
+
+  // display: none
+  background: $bg-main
+
+  .link-section
+    +span(10 of 12)
+    +push(1 of 12)
+    text-align: center
+    padding-top: 3em
+    padding-bottom: 1.5em
+
+    li
+      display: inline-block
+      margin-left: 2em
+
+      &:first-of-type
+        margin-left: 0
+
+  .anchor-link
+    @extend %ft-opensanslight
+    @extend %flaticon-button
+    text-decoration: none
+    font-size: 1.2em
+    color: $ft-link
+
+    &.dawanda
+      position: relative
+
+      &[class^="flaticon-"]:before, &[class*=" flaticon-"]:before, &[class^="flaticon-"]:after, &[class*=" flaticon-"]:after
+        display: inline-block
+        padding-right: 0
+        padding-left: 0
+        width: 3em
+        text-align: center
+        color: #000
+
+      &:hover[class^="flaticon-"]:before, &:hover[class*=" flaticon-"]:before, &:hover[class^="flaticon-"]:after, &:hover[class*=" flaticon-"]:after
+        color: $ft-main-contrast
+
+      .label
+        display: none
+
+      &:hover
+        .label
+          display: block
+          width: 100%
+          position: absolute
+          left: 100%
+          top: 50%
+          +transform(translate(.5em, -50%))
+          background: $bg-link-hover
+          padding: 6px 6px 5px 6px
+          +border-radius(2px)
+
+          img.big
+            display: none
+
+          &:before
+            content: ""
+            position: absolute
+            left: -10px
+            top: 50%
+            +transform(translateY(-50%))
+            border-right: 10px solid $bg-link-hover
+            border-top:  10px solid transparent
+            border-bottom:  10px solid transparent
+
+  .small-logo-positioning
+    position: absolute
+    top: 2em
+    left: 1em
+
+  .svg-fix-small-fox
+    width: 80px
+    display: block
+    height: auto
+    position: relative
+    padding-top: 100%
+
+  .meta-brand-logo
+    display: inline-block
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+
+    & + .label
+      display: none
+
+    &:hover + .label
+      +floating-label
+      top: 4.5em
+
+  .disclaimer-toggle-all
+    position: absolute
+    top: 2.7em
+    right: 1em
+
+  &.fixed
+    position: fixed
+    top: -200px
+    left: 0
+    width: 100%
+    z-index: 1999
+    +box-shadow(0 0 2px rgba(0, 0, 0, 0.65))
+
+  +susy-breakpoint(38em 90em, 12)
+    ul
+      text-align: center
+
+    .anchor-link
+      padding-right: 0
+      padding-left: 0
+      position: relative
+      top: 0
+      left: 0
+
+      .label
+        display: none
+
+      &.with-tooltip:hover
+        background: $bg-link !important
+
+        &:before
+          color: $ft-link !important
+
+        .label
+          +floating-label
+
+
+        &.dawanda
+          .label
+            width: 270px
+            padding: .5em .5em
+
+            &:before
+              top: -20px
+
+            img.small
+              display: none
+
+            img.big
+              display: block
+
+      &[class^="flaticon-"]:before, &[class*=" flaticon-"]:before, &[class^="flaticon-"]:after, &[class*=" flaticon-"]:after
+        display: inline-block
+        padding-right: 0
+        padding-left: 0
+        width: 3em
+        text-align: center
+        color: #000
+
+    .disclaimer-toggle-all
+      position: absolute
+      top: 3em
+      right: 1em
+      left: auto
+
+      padding-left: 1em
+      padding-right: 1em
+
+  +susy-breakpoint(50em 65em, 12)
+    .anchor-link
+      &[class^="flaticon-"]:before, &[class*=" flaticon-"]:before, &[class^="flaticon-"]:after, &[class*=" flaticon-"]:after
+        width: 2em
+
+  +susy-breakpoint(38em 50em, 12)
+    ul li
+      margin-left: 1em
+
+    .anchor-link
+      &[class^="flaticon-"]:before, &[class*=" flaticon-"]:before, &[class^="flaticon-"]:after, &[class*=" flaticon-"]:after
+        width: 1.5em
+
+    .disclaimer-toggle-all
+      padding-left: 1em
+      padding-right: 1em
+
+    .meta-brand-logo
+      display: none
+
+  +susy-breakpoint(0 38em, 12)
+    display: none !important

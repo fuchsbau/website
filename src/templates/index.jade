@@ -1,0 +1,21 @@
+extends ./layouts/_main
+
+
+block content
+  .preloader
+    .status-1
+    .status-2
+    
+  include ./partials/_welcome
+  
+  .is-hidden.preloadbles.scrollables
+    include ./partials/_fuchsbau
+//- <div class="is-hidden preloadbles scrollables">
+//-   <%= partial "fuchsbau" %>
+//-   <%#= partial "greeting" %>
+//-   <%= partial "person" %>
+//-   <%= partial "store" %>
+//-   <!-- <%= partial "products" %> -->
+//-   <%= partial "geo" %>
+//- </div>
+//- <%= partial "footer" %>

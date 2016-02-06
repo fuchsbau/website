@@ -1,0 +1,27 @@
+@import 'pages/meta-navigation'
+
+.page-welcome
+  @extend %full-size-content
+  @extend %covering-bg
+  background-color: #000
+  background-repeat: no-repeat
+  background-image: image-url("674749_original_R_B_by_Joerg_Brinckheger_pixelio.jpg")
+  text-align: center
+
+  padding-top: 0
+
+  .logo-teaser
+    opacity: 0
+
+  .brand
+    @extend %ft-bdtoulouse
+    @extend %stellar-scrollable
+    color: $ft-main-contrast
+    font-size: 6em
+    font-weight: bold
+    display: block
+
+  .brand-logo
+    width: 240px
+    display: block
+    margin: 0 auto

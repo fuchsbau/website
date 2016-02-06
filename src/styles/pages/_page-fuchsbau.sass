@@ -1,0 +1,51 @@
+.page-fuchsbau
+  +container
+  +prefix(1 of 12)
+  +suffix(1 of 12)
+  padding-bottom: 3em
+
+  p
+    text-align: center
+
+  .topics
+    margin-top: 2em
+    overflow: hidden
+
+    & > li
+      +gallery(4 of 12)
+      margin-bottom: 1em
+
+
+      +susy-breakpoint(38em 80em, 12)
+        +gallery(6 of 12)
+
+      +susy-breakpoint(0 38em, 12)
+        &:nth-child(n)
+          float: none
+          width: 100%
+          margin-left: 0
+
+  article
+    overflow: hidden
+
+    h1
+      font-size: 1.3em
+
+    p
+      font-size: 1em
+      line-height: 1.4em
+      margin-bottom: .5em
+      text-align: left
+
+    .picture
+      margin-bottom: 1em
+
+
+    .styled-list
+      list-style-type: disc
+      list-style-position: inside
+
+      li
+        font-size: 1em
+        line-height: 1.2em
+        margin-bottom: .2em

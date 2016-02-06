@@ -1,0 +1,101 @@
+.page-footer
+  @extend %container
+  border-top: 10px solid $ft-highlight-1
+  +prefix(2 of 12)
+  +suffix(2 of 12)
+  font-size: 0.8em
+  padding-top: 3em
+  padding-bottom: 3em
+  //#323636
+  background-color:  #24272b
+  color: $ft-main-contrast
+
+  a
+    color: $ft-highlight-1
+
+    &:hover
+      color: $ft-highlight-2
+
+  section
+    margin-bottom: 4em
+    &:last-of-type
+      margin-bottom: 0
+
+  h1, h3
+    @extend %ft-opensansbold
+    font-weight: 500
+    font-size: 1.3em
+    margin-bottom: 0.5em
+
+  h3
+    font-size: 1.1em
+    margin-top: 1em
+
+  .vcard
+    li
+      font-size: 1.2em
+      line-height: 1.5em
+
+  .disclaimer
+    .disclaimer-toggle
+      @extend %ft-opensanslight
+      @extend %flaticon-button
+      font-size: 1em
+      padding-top: 0em
+      padding-bottom: 0.3em
+      border: 0
+      background: none
+      line-height: 1
+      outline: none
+      color: $ft-main-contrast
+
+      &:before, &:after
+        color: $ft-main-contrast !important
+
+    .content
+      p
+        display: none
+
+    .source
+      margin-top: 2em
+
+  p
+    font-size: 1em
+    line-height: 1.7
+    margin-top: 0
+    margin-bottom: 1em
+
+  strong
+    @extend %ft-opensansbold
+    display: block
+    font-weight: 500
+    font-size: 1em
+    margin-top: 1em
+    margin-bottom: 0.5em
+
+  .licenses
+    li
+      line-height: 1.5
+
+      span
+        @extend %ft-opensansbold
+        font-weight: 300
+
+
+  .page-owner-information
+    +span(6 of 12)
+
+  .license-information
+    +span(last 6 of 12)
+
+  .meta-information
+    overflow: hidden
+
+  +susy-breakpoint(0em 68em, 12)
+    .page-owner-information
+      +span(12 of 12)
+      margin-bottom: 3em
+
+    .license-information
+      +span(12 of 12)
+      margin-top: 3em

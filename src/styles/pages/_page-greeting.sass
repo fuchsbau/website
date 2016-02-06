@@ -1,0 +1,24 @@
+.page-greeting
+  +container
+  +prefix(1 of 12)
+  +suffix(1 of 12)
+  @extend %covering-bg
+  background-repeat: no-repeat
+  position: relative
+
+  background-image: image-url("balloons.jpg")
+  padding-top: 2em
+  padding-bottom: 2em
+
+  color: $ft-main-contrast
+
+  .headline-preview
+    color: $ft-main-contrast
+    border-bottom-color: $ft-main-contrast
+    margin-bottom: 0
+
+  p
+    text-align: center
+
+  strong
+    @extend %ft-opensansbold

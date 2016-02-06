@@ -1,0 +1,103 @@
+.page-person
+  @extend %covering-bg
+  background-repeat: no-repeat
+  position: relative
+
+  background-image: image-url("green.jpg")
+  padding-top: 2em
+  padding-bottom: 2em
+
+  // height: 20em
+
+  +susy-breakpoint(0 68em, 12)
+    height: auto
+
+  .layer
+    // background: #336532
+    background: #277b38
+    opacity: 0.8
+    z-index: 0
+
+  .picture-container
+    +span(3 of 12)
+
+  .profile-pic
+    width: 200px
+    height: 200px
+    margin-left: auto
+    background: image-url("anna-bw.png") no-repeat center center
+    +background-size(100%)
+    border: 12px solid #fff
+    +border-radius(500px)
+    // position: relative
+    //
+    // top: 50%
+    // left: 0
+    // +transform(translate(0, -50%))
+
+    +susy-breakpoint(0 68em, 12)
+      position: static
+      +transform(none)
+      margin-bottom: 1em
+      margin-top: 2em
+
+  .profile-container
+    height: 100%
+    position: relative
+    z-index: 1
+
+    @extend %container
+    +prefix(2 of 12)
+    +suffix(2 of 12)
+
+  .profile-description
+    +span(last 9 of 12)
+    color: #fff
+
+    .multi-column
+      +column-count(3)
+      +column-gap(25px)
+
+      +susy-breakpoint(75em 90em, 12)
+        +column-count(2)
+
+      +susy-breakpoint(0 75em, 12)
+        +column-count(1)
+
+    strong
+      @extend %ft-opensansbold
+
+    h1
+      @extend %ft-chunkfive
+      font-size: 1.5em
+      text-transform: uppercase
+
+      border-bottom: 1px solid #fff
+      padding-bottom: .3em
+      margin-bottom: .5em
+
+    p:first-of-type
+      margin-top: .0em
+
+    p
+      @extend %ft-opensanslight
+      font-size: 1.2em
+      line-height: 1.4
+
+  +susy-breakpoint(0 75em, 12)
+    .picture-container
+      +span(12 of 12)
+
+    .profile-pic
+      margin-left: auto
+      margin-right: auto
+
+    .profile-description
+      +span(12 of 12)
+
+      p, h1
+        text-align: center
+
+      top: 0
+      margin-top: 2em
+      margin-bottom: 2em

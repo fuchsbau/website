@@ -1,0 +1,99 @@
+@import "compass/utilities/general/clearfix"
+
+.page-geo
+  $ft-page-geo: $ft-main-contrast
+  $bg-layer: rgba(174,68,165,0.8)
+
+  padding-top: 0
+  border-bottom: 0
+
+
+  position: relative
+  top: 0
+  left: 0
+  height: 40em
+
+  address
+    position: absolute
+    bottom: 5em
+    left: 0
+    right: 0
+    margin-left: auto
+    margin-right: auto
+    color: $ft-page-geo
+    z-index: 1001
+    a
+      color: $ft-page-geo
+
+    @extend %container
+    +prefix(2 of 12)
+    +suffix(2 of 12)
+    text-align: center
+
+    li
+      display: inline-block
+      margin-right: 5em
+      font-size: 1.2em
+
+      &:last-of-type
+        margin-right: 0
+
+      span
+        @extend %ft-opensansbold
+        line-height: 2.8
+        font-size: 1.2em
+        position: relative
+        top: 0
+        left: 0
+
+        &:before
+          position: absolute
+          left: -1em
+          top: -1.2em
+          font-size: 2.5em
+
+        &.flaticon-arroba:before
+          left: -0.9em
+
+    +susy-breakpoint(0 80em, 12)
+
+      li
+        display: block
+        margin-right: 0
+        text-align: left
+
+    +susy-breakpoint(0 38em, 12)
+      li
+        font-size: 4vw
+
+  header
+    position: absolute
+    top: 5em
+    left: 0
+    right: 0
+    margin-left: auto
+    margin-right: auto
+
+    z-index: 1000
+    color: $ft-page-geo
+
+
+    .headline-preview
+      color: $ft-page-geo
+      border-color: $ft-page-geo
+
+  .layer
+    background: $bg-layer
+    opacity: 0.7
+    z-index: 999
+
+
+#map
+  background-image: image-url("http://maps.googleapis.com/maps/api/staticmap?center=Neustra%C3%9Fe+2,+47661+Issum&zoom=17&size=2200x300&sensor=false&key=AIzaSyDFICsm2hyPifG8rt2-kd6Gg06pErvqUbE&scale=2&markers=color:orange%7C51.534526,%206.425739")
+  +background-size(cover)
+  background-position: center center
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0

@@ -1,0 +1,158 @@
+$gallery-details-bg: #F1F1F1
+
+.page-products
+
+  .gallery-details
+    +container
+    +prefix(1 of 12)
+    +suffix(1 of 12)
+    margin-top: 3em
+
+
+    .gallery-details-content
+      +span(12 of 12)
+
+      display: none
+      height: 0
+      overflow: hidden
+
+      background: $gallery-details-bg
+
+      position: relative
+
+      .image-container
+        +span(6 of 12)
+        padding: 1em
+
+
+        +susy-breakpoint(0 80em, 12)
+          +span(12 of 12)
+
+        img
+          max-width: 100%
+
+      .caption
+        +span(last 6 of 12)
+
+        +susy-breakpoint(0 80em, 12)
+          +span(12 of 12)
+
+        padding: 1em
+
+      .close
+        background: $gallery-details-bg
+        border: 2px solid #000
+        height: 2em
+        width: 2em
+        text-indent: -9999px
+
+        // +susy-breakpoint(0 80em, 12)
+
+        position: absolute
+        top: 1em
+        right: 1em
+        z-index: 50
+
+        outline: none
+        overflow: hidden
+
+        &:before
+          content: ""
+          border: .9em solid #000
+          border-bottom-color: transparent
+          border-left-color: transparent
+          position: absolute
+          top: 0
+          right: 0
+
+        &:hover:before
+          border-bottom-color: #000
+          border-left-color: #000
+
+
+  .gallery
+    +container
+    +prefix(1 of 12)
+    +suffix(1 of 12)
+    padding-top: 0em
+    padding-bottom: 2em
+    position: relative
+
+    .picture
+      +gallery(3 of 12)
+      margin-top: 1.5%
+      position: relative
+      overflow: hidden
+      display: block
+
+      +susy-breakpoint(0 38em, 12)
+        +gallery(6 of 12)
+        margin-top: 1%
+        color: $ft-main
+
+      +susy-breakpoint(38em 80em, 12)
+        +gallery(4 of 12)
+
+      .layer
+
+        display: block
+
+      .caption
+        display: none
+
+      &:hover
+        .layer
+          background: rgba(93, 231, 223, 0.5) image-url("origami.svg") no-repeat center center
+          +background-size(35%)
+          cursor: pointer
+
+      &.preloading
+        .layer
+          background: #333 image-url("origami.svg") no-repeat center center
+          +background-size(35%)
+          display: block
+
+        .bar
+          width: 100%
+          overflow: hidden
+          width: 100%
+          background-color: #FFFFFF
+          height: 10px
+          margin-top: 3.5em
+          position: absolute
+          bottom: 0
+          left: 0
+
+        .bar-fill
+          display: block
+          background-color: #1BBC9B
+          height: 20px
+          -webkit-transition: width 0.8s ease
+          transition: width 0.8s ease
+
+
+        .covering-image
+          background-repeat: no-repeat
+          background-size: cover
+          background-position: center center
+          width: 100%
+          height: 100%
+
+.caption
+  h3
+    font-weight: bold
+    font-size: 1.5em
+
+  p
+    font-size: 1em
+
+  .labels
+    margin-top: 2em
+
+    li
+      display: inline-block
+      background: #BBB
+      color: #fff
+      text-transform: uppercase
+      font-size: 0.875em
+      padding: .2em .5em

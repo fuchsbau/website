@@ -1,0 +1,56 @@
+.page
+  @extend %stellar-scrollable
+  overflow: hidden
+  padding-top: 10em
+  padding-bottom: 10em
+
+  h1
+    font-size: 4.5em
+
+  +susy-breakpoint(0 38em, 12)
+    padding-top: 5em
+    padding-bottom: 5em
+
+    h1
+      font-size: 9.5vw
+
+    p
+      font-size: 4vw
+
+  header
+    text-align: center
+
+  .headline-preview
+    @extend %ft-chunkfive
+    font-weight: 500
+    font-size: 1em
+    color: $ft-secondary
+    display: inline-block
+    padding-bottom: 2em
+    margin-bottom: 2em
+    width: 50%
+    text-transform: uppercase
+    border-bottom: 1px solid $ft-secondary
+
+
+  +susy-breakpoint(0 38em, 12)
+    .headline-preview
+      display: none
+
+
+  .layer
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+@import 'page-welcome'
+@import 'page-store'
+@import 'page-fuchsbau'
+@import 'page-person'
+@import 'page-greeting'
+@import 'page-products'
+@import 'page-geo'
+@import 'page-footer'
+@import 'page-article'

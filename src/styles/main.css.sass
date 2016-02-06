@@ -1,0 +1,119 @@
+@charset "utf-8"
+
+@import "susy-config"
+@import "fonts"
+@import "colors"
+
+img
+  max-width: 100%
+
+%full-size-content
+  height: 100%
+  width: 100%
+
+%stellar-scrollable
+  position: relative
+
+
+%vertical-align
+  position: relative
+  top: 50%
+  +transform(translateY(-50%))
+
+  * > &
+    -webkit-transform-style: preserve-3d
+
+%covering-bg
+  background-attachment: fixed
+  background-size: cover
+
+%gallery-shadowed
+  position: relative
+  +box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset)
+  border: 7px solid white
+
+  &:before, &:after
+    content: ""
+    position: absolute
+    z-index: -1
+    +box-shadow(0 0 20px rgba(0,0,0,0.8))
+    top: 50%
+    bottom: 0
+    left: 10px
+    right: 10px
+    +border-radius(100px / 10px)
+
+  &:after
+    right: 10px
+    left: auto
+    +transform(skew(8deg) rotate(3deg))
+
+.centralized
+  position: absolute
+
+p
+  @extend %ft-opensanslight
+
+*
+  +box-sizing(border-box)
+
+.covering-image
+  background-repeat: no-repeat
+  +background-size(cover)
+  background-position: center center
+  width: 100%
+  height: 100%
+
+a
+  color: $ft-highlight-1
+  text-decoration: none
+
+@import 'defaults'
+@import 'components/buttons'
+@import 'pages/page'
+
+
+
+.preload
+  display: none
+
++keyframes(load)
+  0%
+    background-color: $ft-highlight-1
+    width: 0
+
+  33%
+    width: 100%
+
+  66%
+    +transform(translateX(0))
+    width: 100%
+    +transform-origin(right)
+
+  100%
+    +transform(translateX(100%))
+    +transform-origin(right)
+
+    background-color: $ft-highlight-1
+
+.preloader
+  position: fixed
+  width: 100%
+  overflow: hidden
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+  background-color: #24272b
+
+
+.status-1
+  background-color: transparent
+  height: 50%
+  +animation(load 4s ease-in-out 2s infinite)
+
+.status-2
+  background-color: transparent
+  height: 50%
+  +animation(load 4s ease-in-out 1s infinite)

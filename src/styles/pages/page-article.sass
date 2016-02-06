@@ -1,0 +1,86 @@
+.page-article
+  @extend %container
+  +prefix(1 of 12)
+  +suffix(1 of 12)
+  padding-top: 3em
+  padding-bottom: 3em
+  border-top: 4px dashed #e3e3e3
+
+  // &:first-of-type
+  //   border-top: none
+
+  p
+    margin-top: 0
+    margin-bottom: 1em
+
+  .pullquote
+    padding-left: 10px
+    border-style: solid
+    border-left-width: 3px
+    margin: 0px 0px 1.421em 0px
+
+
+  h2
+    font-size: 2em
+    margin-bottom: .3em
+
+  .styled-list
+    padding-left: 1em
+    list-style-type: circle
+    list-style-position: outside
+
+    li
+      margin-bottom: .5em
+      line-height: 1.4em
+
+  .picture
+    +span(4 of 12)
+
+    .covering-image
+      @extend %gallery-shadowed
+
+  .article-body
+    +span(last 8 of 12)
+
+    h1
+      font-size: 3em
+      margin-bottom: .5em
+
+
+  +susy-breakpoint(0 48em, 12)
+    .picture
+      +span(12 of 12)
+      margin-bottom: 2em
+
+    .article-body
+      +span(12 of 12)
+
+  // &.article-decoration
+  //   background-color: #91bc81
+  //   color: #fff
+  //
+  // &.article-print
+  //   background-color: #ecd275
+  //   color: #fff
+  //
+  // &.article-foil
+  //   background-color: #84c0d7
+  //   color: #fff
+  //
+  // &.article-graphics
+  //   background-color: #5cbf94
+  //   color: #fff
+  //
+  // &.article-renting
+  //   background-color: #6c5287
+  //   color: #fff
+  //
+  // &.article-courses
+  //   background-color: #3193a5
+  //   color: #fff
+
+    // h1
+      color: #2a8f8c
+
+.page-article .picture.svg-image .covering-image:before
+  +box-shadow(none)

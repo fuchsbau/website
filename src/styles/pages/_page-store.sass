@@ -1,0 +1,51 @@
+.image-frame
+  // position: relative
+  // z-index: 1
+
+// .image-frame .picture
+//   margin: 4px
+//   padding: 4px
+//   background-color: #fff
+//   border: 1px solid #ccc
+//   border: 1px solid rgba(0, 0, 0, 0.2)
+//   +box-shadow(0 1px 3px rgba(0, 0, 0, 0.1))
+
+.page-store
+  @extend %container
+  +prefix(1 of 12)
+  +suffix(1 of 12)
+  text-align: center
+
+  p
+    text-align: center
+
+  .store-images
+    overflow: hidden
+    margin-top: 2em
+
+    .store-image
+      +span(4 of 12)
+
+      &:last-of-type
+        +span(last 4 of 12)
+
+      .image-frame div
+        background-color: transparent
+        background-repeat: no-repeat
+        +background-size(cover)
+
+
+      +susy-breakpoint(0 48em, 12)
+        &
+          +span(12 of 12)
+
+        .store-2, .store-3
+          display: none
+
+
+    img
+      display: none
+      +span(4 of 12)
+
+      &:last-of-type
+        +span(last 4 of 12)
