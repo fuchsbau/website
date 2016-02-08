@@ -83,6 +83,11 @@ gulp.task('coffee', () => {
   .pipe(gulp.dest(paths.tmp.scripts));
 });
 
+gulp.task('vendor-scripts', () => {
+  return gulp.src(['vendor/modernizr-custom.min.js'])
+  .pipe(gulp.dest(paths.dist.scripts));
+});
+
 gulp.task('scripts', ['coffee'], () => {
   return gulp.src([
     'src/scripts/base64encode.js',
@@ -108,7 +113,7 @@ gulp.task('fonts', () => {
   .pipe(gulp.dest(paths.dist.fonts))
 });
 
-gulp.task('assets', ['styles', 'images', 'scripts', 'fonts']);
+gulp.task('assets', ['styles', 'images', 'scripts', 'fonts', 'vendor-scripts']);
 
 gulp.task('templates', () => {
     // let manifest = gulp.src(assetPath + '/rev-manifest.json');

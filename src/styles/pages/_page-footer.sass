@@ -49,10 +49,13 @@
       outline: none
       color: $ft-main-contrast
 
+      .no-js &
+        display: none
+
       &:before, &:after
         color: $ft-main-contrast !important
 
-    .content
+    .js & .content
       p
         display: none
 
