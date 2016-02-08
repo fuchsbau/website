@@ -14,11 +14,15 @@ initStellar = ->
 # ******************************************************************************
 # ******************************************************************************
 
+imageVideo = $('.image-video')
+
 centralize = ->
   # we provide global page dimensions here,
   # that we can update occasionally if the screen size changes.
   pageHeight = 0
   pageWidth = 0
+
+
 
   changed = (x, y, newX, newY) ->
     !(x == newX && y == newY)
@@ -30,6 +34,8 @@ centralize = ->
     if changed(pageWidth, pageHeight, newPageWidth, newPageHeight)
       pageWidth = newPageWidth
       pageHeight = newPageHeight
+
+      imageVideo.height(imageVideo.width()/16*9)
 
       $('.page-welcome .centralized').center()
 

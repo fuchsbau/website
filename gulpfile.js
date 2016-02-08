@@ -30,7 +30,7 @@ const gzip = require('gulp-gzip');
 
 // release tooling
 // var replace = require('gulp-replace');
-// var ghPages = require('gulp-gh-pages');
+var ghPages = require('gulp-gh-pages');
 
 
 var config = {
@@ -125,7 +125,13 @@ gulp.task('templates', () => {
     .pipe(gulp.dest(paths.dist.build));
 });
 
-
 gulp.task('build-development', ['templates', 'assets']);
+gulp.task('build-release', ['build-development']);
+
+
+gulp.task('deploy', ['build-release'], function() {
+  return gulp.src(paths.dist.build + '/**/*')
+    .pipe(ghPages({ remoteUrl: "git@github.com:fuchsbau/fuchsbau.github.io.git", branch: "master" }));
+});
 
 gulp.task('default', ['build-development'])
