@@ -19,21 +19,12 @@
     z-index: 0
 
   .picture-container
-    +span(3 of 12)
+    +span(5 of 12)
+    text-align: center
 
-  .profile-pic
-    width: 200px
-    height: 200px
-    margin-left: auto
-    background: url("/images/anna-bw.png") no-repeat center center
-    background-size: 100%
-    border: 12px solid #fff
-    border-radius: 500px
-    // position: relative
-    //
-    // top: 50%
-    // left: 0
-    // transform: translate(0, -50%)
+
+    .profile-img
+      border: 10px solid white
 
     +susy-breakpoint(0 68em, 12)
       position: static
@@ -51,22 +42,24 @@
     +suffix(2 of 12)
 
   .profile-description
-    +span(last 9 of 12)
+    +span(last 7 of 12)
     color: #fff
 
     .multi-column
-      width: 31%
-      margin-right: 1.9%
+      width: 100%
+      margin-right: 0%
+      // width: 31%
+      // margin-right: 1.9%
+      //
+      // &:last-of-type
+      //   margin-right: 0%
 
-      &:last-of-type
-        margin-right: 0%
-
-      +susy-breakpoint(75em 90em, 12)
-        width: 48%
-
-      +susy-breakpoint(0 75em, 12)
-        width: 100%
-        margin-right: 0%
+      // +susy-breakpoint(75em 90em, 12)
+      //   width: 48%
+      //
+      // +susy-breakpoint(0 75em, 12)
+      //   width: 100%
+      //   margin-right: 0%
 
     strong
       @extend %ft-opensansbold
